@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food App</title>
+  <link rel="stylesheet" href="./style/index.css" />
+  <style>
+    #navbar+div {
+      width: 600px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div id="navbar"></div>
+  <div>
+    <div id="searchBar">
+      <div id="search-bar">
+        <input type="text" id="input" />
+      </div>
+      <div></div>
+    </div>
+    <div id="results"></div>
+  </div>
+  </div>
+  <div id="container"></div>
+</body>
+
+</html>
+<script type="module">
+  import navbar from "./components/navbar.js";
+  import { getData, append, appendData } from "./scripts/appendFetch.js";
+
+  let casualFunction = () => {
+    document.getElementById("navbar").innerHTML = navbar;
+  };
+
+  let sondaryFunction = async () => {
+    await casualFunction();
+
+    let user = JSON.parse(localStorage.getItem("logged_in"));
+    if(user===null) return false ;
+    else document.getElementById("user").innerText = user.firstName;
+  };
+
+  sondaryFunction();
+
+  let getQuery = async () => {
+    let query = document.getElementById("input").value;
+
+    let url = `https://themealdb.com/api/json/v1/1/search.php?s=${query}`;
+    let data = await getData(url);
+
+    let cont = document.getElementById("results")
+    appendData(data.meals, cont);
+  };
+
+  let container = document.getElementById("container");
+  let response = JSON.parse(localStorage.getItem("element"));
+  if (response !== null) {
+    let hello = () => {
+      document.querySelector("#navbar+div").style.height = "70px";
+      append(response, container);
+      localStorage.removeItem("element");
+    }
+    hello();
+  }
+
+  function debounceFunction() {
+    document.querySelector("#navbar+div").style.height = "388px";
+    setTimeout(function () {
+      getQuery();
+    }, 1000);
+  }
+  document.getElementById("input").addEventListener("input", debounceFunction);
+</script>
