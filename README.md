@@ -1,6 +1,6 @@
-# Food Network
+# GetTheRecipe
 
-Food Network is appication to help you cook delicious meals with less stress and more joy. We offer recipes and cooking advice for home cooks, from around the globe.
+GetTheRecipe is appication to help you cook delicious meals with less stress and more joy. We offer recipes and cooking advice for home cooks, from around the globe.
 
 # About this project: 🙌
 
