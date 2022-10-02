@@ -12,9 +12,9 @@ Food Network is appication to help you cook delicious meals with less stress and
 
 - User can search for any of the recipe listed in application.
 
-- Application gives the whole idea i.e. ingredients and thier quantity as well as end-toend recipe to cook delicious food.
+- Application gives the whole idea i.e. ingredients and thier quantity as well as end-to-end recipe to cook delicious food.
 
-- Live link :- [Weather App](https://jolly-meringue-d50d97.netlify.app/)
+- Live link :- [Food App](https://jolly-meringue-d50d97.netlify.app/)
 
 # Features :
 
